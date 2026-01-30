@@ -1,0 +1,37 @@
+WINDTURBINE: '.\config\wtconfig_occupy.yml'
+OUTPATH: 'E:\WorkspaceY9000P2025\YawControl\HPPOResultesCrossDomain'
+Net:
+  StateDim: 8
+  HiddenLayer: 1
+  HiddenSize: 64
+  ActionDim: 3
+  Pretrain: 'bestmodel_domain4.pth'# 'bestmodel.pth' or 'none'
+Command: 'VEL'
+PPO:
+  LR: 0.00001
+  BETAS: [0.9,0.999]
+  GAMMA: 0.99
+  K_EPOCHS: 4
+  EPS_CLIP: 0.2
+TRAINDATA:
+  FILE_NAME: 'trainset_domain1.npz'
+  GROUP_PER_EP: 1
+  NUM_PER_GROUP: 8000
+TESTDATA:
+  FILE_NAME: 'testset_domain3.npz'
+  GROUP_PER_EP: 1
+  NUM_PER_GROUP: 4000
+TRAIN:
+  MAX_EPOCH: 100
+  WAMIN: 0
+  WAMAX: 0.1
+  WAMIN_EP: 0
+  WAMAX_EP: 50
+  WAS: [ 0.0,0.0005,0.0010,0.0015,0.0020,0.0025,0.0030,0.0035,0.0040,0.0045,0.0050]
+  WAS_EP: [ 0,10,20,30,40,50,60,70,80,90,100]
+#  WAS: [ 0.0,0.001,0.005,0.01,0.05,0.1,0.5,1,5,10,50,100,500,1000,5000,10000,50000,100000,500000,1000000,5000000,10000000 ]
+#  WAS_EP: [ 0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100 ]
+  REWARD_WEIGHTS: [1,1,1]
+INFER:
+  MAX_EPOCH: 100
+  IMG_NUM: 12

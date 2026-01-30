@@ -1,0 +1,16 @@
+ID: 0
+WINDFARM: mahuangtan  #wind farm name
+R: 55 #rotor radius
+AIRDENSITY: 1.29
+WINDDATA: 'E:\\YawControl20230128\\YawControlCodes\\wind_data'
+OCCLUSION: False #whether consider occlusion
+OCCLUSIONATTR: #attributions of the occlusion
+  DIR: 20 #the direction of the center
+  RANAGE: 20 #the range of occlusion
+  AMPLITUDE: 0.6 #the loss of power at the center direction
+WINDERROR: False #whether consider measurement error
+WINDERRORATTR:
+  DIR_ERROR: 40 # error of direction
+  SPEED_ERROR: 0 #error of speed
+CONTROLLERS: ['CLASSIC']#'CLASSIC_PRED'
+DATAYEARS: [0,1,2,3,4,5]
