@@ -57,8 +57,6 @@ class WTENV():
         self.visualplot = plot4
         self.env = WindTurbine(config['WINDTURBINE'],config['Command'], self.reward_weights)
 
-        self.infer_threshold = config['INFER']['THRESHOLD']/90
-
         self.log_path = self.out_path+'/train_log.txt'
         self.test_log_path = self.out_path + '/test_log.txt'
         self.infer_log_path = self.out_path + '/infer_log.txt'
@@ -329,4 +327,5 @@ class WTENV():
                 records[controller_name][1].append(info[0])
                 if done:
                     break
+
         return  records
